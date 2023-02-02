@@ -30,9 +30,11 @@ img {
     --A-COLOR: hsl(0, 0%, 100%);
     --H1-COLOR: hsl(0, 0%, 100%);
     --H2-COLOR: hsl(0, 0%, 0%);
+    --HEADER-H2-COLOR: hsl(0, 0%, 100%);
     --BORDER-COLOR: hsl(0, 0%, 100%);
     --VRP-COLOR: hsl(0, 0%, 55%);
     --BTN-BORDER-COLOR: hsl(0, 0%, 0%);
+    --BTN-COLOR: hsl(0, 0%, 0%);
     --BTN-HOVER-BGCOLOR: hsl(0, 0%, 0%);
     --BTN-HOVER-COLOR: hsl(0, 0%, 100%);
     --P-COLOR: hsl(0, 0%, 100%);
@@ -50,35 +52,45 @@ img {
         --INTER-BGCOLOR: hsl(0, 0%, 10%);
         --H1-COLOR: hsla(0, 0%, 100%, 0.9);
         --H2-COLOR: hsla(0, 0%, 100%, 0.9);
+        --HEADER-H2-COLOR: hsla(0, 0%, 100%, 0.9);
         --P-COLOR: hsla(0, 0%, 100%, 0.9);
+        --BTN-COLOR: hsla(0, 0%, 100%, 0.9);
+        --BTN-BORDER-COLOR: hsla(0, 0%, 100%, 0.9);
+        --BTN-HOVER-BGCOLOR: hsla(0, 0%, 100%, 0.9);
+        --BTN-HOVER-COLOR: hsl(0, 0%, 7%);
     }
 }
 
-@media (hover: hover) {
-    a:hover, a:focus {
-        font-weight: bolder;
-        transition-duration: 0.3s;
-    }
+a:hover, a:focus {
+    font-weight: bolder;
+    transition-duration: 0.3s;
+}
 
-    .card_container div:hover {
-        box-shadow: 0 0 5px 5px var(--SHADOW-COLOR);
-        transform: scale(1.1);
-        z-index: 1;
-        transition-duration: 0.3s;
-        font-weight: 700;
-    }
+.card_container div:hover {
+    box-shadow: 0 0 5px 5px var(--SHADOW-COLOR);
+    transform: scale(1.1);
+    z-index: 1;
+    transition-duration: 0.3s;
+    font-weight: 700;
+}
 
-    .footer__p:hover {
-        cursor: pointer;
-        font-weight: 700;
-    }
+.main__btn:hover, .main__btn:active {
+    cursor: pointer;
+    background-color: var(--BTN-HOVER-BGCOLOR);
+    color: var(--BTN-HOVER-COLOR);
+    transition-duration: 0.2s;
+}
 
-    .footer img:hover {
-        cursor: pointer;
-        transform: scale(1.5);
-        z-index: 1;
-        transition-duration: 0.3s;
-    }
+.footer__p:hover {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.footer img:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    z-index: 1;
+    transition-duration: 0.3s;
 }
 
 /* || GENERAL */
@@ -140,6 +152,7 @@ h2 {
 
 .header__h2 {
     font-size: 2.5em;
+    color: var(--HEADER-H2-COLOR);
 }
 
 .header__nav {
@@ -262,6 +275,7 @@ h2 {
 
 .main__btn {
     background-color: inherit;
+    color: var(--BTN-COLOR);
     border: 1px solid var(--BTN-BORDER-COLOR);
     padding: 1em 3em;
     margin-top: 1em;
@@ -269,12 +283,7 @@ h2 {
     font-weight: bold;
 }
 
-.main__btn:hover, .main__btn:active {
-    cursor: pointer;
-    background-color: var(--BTN-HOVER-BGCOLOR);
-    color: var(--BTN-HOVER-COLOR);
-    transition-duration: 0.2s;
-}
+
 
 .footer {
     width: 100%;
@@ -351,6 +360,7 @@ h2 {
     }
 
     .hero__h1 {
+        width: max(462px, 50%);
         font-size: 3.5em;
         margin: 0;
     }
