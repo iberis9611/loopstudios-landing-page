@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300;700&display=swap');
+/* || RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+    position: absolute;
+    left: -10000px;
+}
+
+/* || VARIABLES */
+:root {
+    /* FONTS */
+    --FF: 'Alata', sans-serif;
+    --FF2: 'Josefin Sans', sans-serif;
+    --FS: 1rem;
+
+    /* COLORS */
+    --BD-BGCOLOR: hsl(0, 0%, 100%);
+    --A-COLOR: hsl(0, 0%, 100%);
+    --H1-COLOR: hsl(0, 0%, 100%);
+    --H2-COLOR: hsl(0, 0%, 0%);
+    --BORDER-COLOR: hsl(0, 0%, 100%);
+    --VRP-COLOR: hsl(0, 0%, 55%);
+    --BTN-BORDER-COLOR: hsl(0, 0%, 0%);
+    --BTN-HOVER-BGCOLOR: hsl(0, 0%, 0%);
+    --BTN-HOVER-COLOR: hsl(0, 0%, 100%);
+    --P-COLOR: hsl(0, 0%, 100%);
+    --FOOTER-BGCOLOR: hsl(0, 0%, 0%);
+    --COPYRIGHT-COLOR: hsl(0, 0%, 41%);
+    --MENU-COLOR: hsl(0, 0%, 0%);
+    --INTER-BGCOLOR: hsl(0, 0%, 100%);
+    --SHADOW-COLOR: hsla(0, 0%, 55%, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --BD-BGCOLOR: hsl(0, 0%, 7%);
+        --FOOTER-BGCOLOR: hsl(0, 0%, 10%);
+        --INTER-BGCOLOR: hsl(0, 0%, 10%);
+        --H1-COLOR: hsla(0, 0%, 100%, 0.9);
+        --H2-COLOR: hsla(0, 0%, 100%, 0.9);
+        --P-COLOR: hsla(0, 0%, 100%, 0.9);
+    }
+}
+
+@media (hover: hover) {
+    a:hover, a:focus {
+        font-weight: bolder;
+        transition-duration: 0.3s;
+    }
+
+    .card_container div:hover {
+        box-shadow: 0 0 5px 5px var(--SHADOW-COLOR);
+        transform: scale(1.1);
+        z-index: 1;
+        transition-duration: 0.3s;
+        font-weight: 700;
+    }
+
+    .footer__p:hover {
+        cursor: pointer;
+        font-weight: 700;
+    }
+
+    .footer img:hover {
+        cursor: pointer;
+        transform: scale(1.5);
+        z-index: 1;
+        transition-duration: 0.3s;
+    }
+}
+
+/* || GENERAL */
+body {
+    min-height: 100vh;
+    font: var(--FF) var(--FS);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10em;
+    background-color: var(--BD-BGCOLOR);
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--A-COLOR);
+    font-size: 2em;
+}
+
+a:active {
+    color: hsl(269, 38%, 30%);
+}
+
+a, h1, h2, .main p, .footer__h3 {
+    font-family: var(--FF2);
+}
+
+h2 {
+    font-size: 2em;
+    color: var(--H2-COLOR);
+}
+
+.open_menu {
+    background-color: var(--MENU-COLOR);
+    min-height: 650px;
+}
+
+/* || LANDING PAGE */
+.header {
+    width: 100%;
+    position: absolute;
+    padding: 2em 1em 0;
+    color: var(--P-COLOR);
+    display: flex;
+    flex-direction: column;
+    gap: 8em;
+}
+
+.header div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5em;
+}
+
+.header__h2 {
+    font-size: 2.5em;
+}
+
+.header__nav {
+    display: none;
+}
+
+.header__ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.hero {
+    min-height: 650px;
+    background-image: url("../images/mobile/image-hero.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero__h1 {
+    color: var(--H1-COLOR);
+    border: 3px solid var(--BORDER-COLOR);
+    font-size: 2.5em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.main {
+    padding: 0 1em;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.main__div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__h2 {
+    font-weight: 300;
+}
+
+.main__p {
+    color: var(--P-COLOR);
+}
+
+.vr {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    text-align: center;
+    padding: 2em 2em 0;
+}
+
+.vr p {
+    line-height: 1.7em;
+    color: var(--VRP-COLOR);
+}
+
+.creations {
+    gap: 1em;
+}
+
+.creations h2 {
+    margin-bottom: 0.5em;
+}
+
+.card_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.card_container div {
+    min-height: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.creations p {
+    font-size: 1.8em;
+    padding: 0.8em;
+    position: absolute;
+    bottom: 0;
+}
+
+.card1 {
+    background-image: url("../images/mobile/image-deep-earth.jpg");
+}
+
+.card2 {
+    background-image: url("../images/mobile/image-night-arcade.jpg");
+}
+.card3 {
+    background-image: url("../images/mobile/image-soccer-team.jpg");
+}
+.card4 {
+    background-image: url("../images/mobile/image-grid.jpg");
+}
+.card5 {
+    background-image: url("../images/mobile/image-from-above.jpg");
+}
+.card6 {
+    background-image: url("../images/mobile/image-pocket-borealis.jpg");
+}
+.card7 {
+    background-image: url("../images/mobile/image-curiosity.jpg");
+}
+.card8 {
+    background-image: url("../images/mobile/image-fisheye.jpg");
+}
+
+.main__btn {
+    background-color: inherit;
+    border: 1px solid var(--BTN-BORDER-COLOR);
+    padding: 1em 3em;
+    margin-top: 1em;
+    letter-spacing: 0.5em;
+    font-weight: bold;
+}
+
+.main__btn:hover, .main__btn:active {
+    cursor: pointer;
+    background-color: var(--BTN-HOVER-BGCOLOR);
+    color: var(--BTN-HOVER-COLOR);
+    transition-duration: 0.2s;
+}
+
+.footer {
+    width: 100%;
+    background-color: var(--FOOTER-BGCOLOR);
+    color: var(--P-COLOR);
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.footer__h3 {
+    font-size: 2em;
+}
+
+.footer div, .div1 div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.div1 div {
+    align-items: center;
+    gap: 1em;
+}
+
+.div2 div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.copyright {
+    color: var(--COPYRIGHT-COLOR);
+}
+
+/* || DESKTOP */
+@media screen and (min-width: 768px) {
+    a {
+        font-size: 1em;
+    }
+
+    .header {
+        min-height: 100px;
+        background: transparent;
+        padding: 2em 8em 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__h2 {
+        font-size: 2em;
+    }
+
+    .header__nav {
+        display: block;
+    }
+
+    .header__ul {
+        flex-direction: row;
+    }
+
+    .header figure {
+        display: none;
+    }
+
+    .hero {
+        width: 100%;
+        background-image: url("../images/desktop/image-hero.jpg");
+        padding: 8em;
+        justify-content: flex-start;
+    }
+
+    .hero__h1 {
+        font-size: 3.5em;
+        margin: 0;
+    }
+
+    .main {
+        padding: 0 10em;
+        gap: 5em;
+        width: 1440px;
+    }
+
+    .interactive {
+        position: relative;
+        align-items: flex-start;
+    }
+
+    .interactive .vr {
+        position: absolute;
+        width: 35em;
+        padding: 6em 6em 0;
+        background-color: var(--INTER-BGCOLOR);
+        bottom: 0;
+        right: 0;
+        text-align: left;
+    }
+
+    .vr p {
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+    
+    .creations {
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    .creations h2 {
+        margin-bottom: 0;
+    }
+
+    .main__btn {
+        margin-top: 0;
+        padding: 1em 3em;
+        font-size: 1em;
+    }
+
+    .card_container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(450px, auto);
+        gap: 1em;
+        order: 1;
+    }
+
+    .card_container p {
+        font-size: 2em;
+    }
+
+    .card1 {
+        background-image: url("../images/desktop/image-deep-earth.jpg");
+    }
+    .card2 {
+        background-image: url("../images/desktop/image-night-arcade.jpg");
+    }
+    .card3 {
+        background-image: url("../images/desktop/image-soccer-team.jpg");
+    }
+    .card4 {
+        background-image: url("../images/desktop/image-grid.jpg");
+    }
+    .card5 {
+        background-image: url("../images/desktop/image-from-above.jpg");
+    }
+    .card6 {
+        background-image: url("../images/desktop/image-pocket-borealis.jpg");
+    }
+    .card7 {
+        background-image: url("../images/desktop/image-curiosity.jpg");
+    }
+    .card8 {
+        background-image: url("../images/desktop/image-fisheye.jpg");
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .div1 div {
+        flex-direction: row;
+    }
+
+    .div2 div {
+        justify-content: flex-end;
+    }
+}
